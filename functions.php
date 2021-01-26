@@ -19,5 +19,26 @@ function sakura_theme_link(){
 
 add_action('wp_enqueue_scripts', 'sakura_theme_link');
 
+?>
+
+<?php
+
+function sakura_theme_init(){
+    register_post_type(
+        "daily",[
+            "labels" => [
+                "name" => "日報"
+            ],
+            "public" => true,
+            "menu_icon" => "dashicons-analytics",
+            "menu_position" => 5,
+            'show_in_rest' => true,
+        ]
+        );
+
+
+}
+
+add_action("init", "sakura_theme_init");
 
 ?>
